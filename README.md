@@ -41,7 +41,11 @@ OpenAI's Math release. This repository only:
    statement) in `Verify/SidorenkoCounterexample.lean`;
 3. records the axiom audit and exact build commands.
 
-No proof step was altered. Diff the `OAI/` tree against upstream to confirm.
+No proof step was altered. The 35 committed `OAI/` blobs are byte-identical to
+the upstream `lean/OAI/Combinatorics/Sidorenko/` blobs of `openai/math` @
+`adc7f124`; compare them with
+`git cat-file -p HEAD:OAI/... | shasum -a 256` against the upstream blob, or
+`diff -r OAI/ upstream/lean/OAI/` on a checkout.
 
 ## Build (exact commands)
 
@@ -61,7 +65,26 @@ lake build Verify.SidorenkoCounterexample
 - Lean toolchain: `leanprover/lean4:v4.34.1` (same as upstream `lean-toolchain`)
 - Mathlib: `d13f23b723b8a846827a245b89c10fc7d3f11612` (same pin as upstream `lakefile.lean`)
 - openai/math source: `adc7f1241b42e322a6451854ab7e4b4c146bf78a`
-- Full source SHA256s: `SHA256SUMS` (upstream files), `SHA256SUMS.verify` (this repo's additions)
+
+## Integrity check
+
+`.gitattributes` pins `* text=auto eol=lf`, so every clone checks out exactly the
+bytes the manifests describe (independently of `core.autocrlf`).
+
+```bash
+shasum -c SHA256SUMS          # 35 upstream `OAI/` files, byte-identical to openai/math blobs
+shasum -c SHA256SUMS.verify   # this repo's addition: Verify/SidorenkoCounterexample.lean
+```
+
+Both commands exit 0 and print `OK` for every listed file.
+
+Provenance note: upstream's `openai/math` challenge file itself is **not**
+vendored (only the namespace-adjusted copy under `Verify/` is), so it does not
+appear in either manifest. Its digest is recorded here for audit:
+`lean/ComparatorChallenges/SidorenkoCounterexample.lean` @ `adc7f124` =
+`3f2b1aba5bb6b6644562f19516eb32ceac9cccf9d07d8c9f002d4ea73e5b226b`; the
+committed `Verify/` copy differs from it only in the outer namespace and the
+closing `exact`.
 
 ## Axiom audit
 
@@ -103,7 +126,9 @@ lakefile.lean                  # Mathlib pin, two lean_libs
 lean-toolchain                 # v4.34.1
 LICENSE                        # Apache 2.0 (from upstream lean folder)
 AXIOM_AUDIT.txt                # recorded audit output
-SHA256SUMS, SHA256SUMS.verify  # integrity pins
+.gitattributes                 # * text=auto eol=lf — keeps checkout bytes stable
+SHA256SUMS                     # 35 upstream OAI/ files (sha256 of committed bytes)
+SHA256SUMS.verify              # Verify/SidorenkoCounterexample.lean (this repo's addition)
 ```
 
 ## License
