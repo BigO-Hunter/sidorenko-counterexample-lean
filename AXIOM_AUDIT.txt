@@ -1,0 +1,13 @@
+# Axiom audit — sidorenko-counterexample-lean
+# 2026-11-05T01:44:21Z
+# lean v4.34.1 / mathlib d13f23b723b8a846827a245b89c10fc7d3f11612
+
+$ lake build Verify.SidorenkoCounterexample
+Build completed successfully (8959 jobs). BUILD EXIT=0
+Build completed successfully (8959 jobs).
+
+$ lake env lean Verify/SidorenkoCounterexample.lean
+info: Verify/SidorenkoCounterexample.lean:61:0: 'Verify.SidorenkoCounterexample.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+$ lake env lean axcheck.lean  # direct audit of the upstream theorem name
+'OAI.SidorenkoCounterexample.main' depends on axioms: [propext, Classical.choice, Quot.sound]
