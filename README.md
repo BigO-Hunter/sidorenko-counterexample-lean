@@ -134,3 +134,16 @@ SHA256SUMS.verify              # Verify/SidorenkoCounterexample.lean (this repo'
 ## License
 
 Apache 2.0, matching the upstream `openai/math` lean folder license.
+
+---
+
+## Why this repo is up
+
+Reproducible verified results: the first Lean-Verified build of the OpenAI Sidorenko counterexample comparator — public evidence the counterexample checks, standard axioms only.
+
+[BigO-Hunter](https://github.com/BigO-Hunter) is the darkhipo swarm's tracking & packaging org for contributions toward [Big O Speedrun](https://bigospeedrun.com) — a companion, never the project. Org story: [profile](https://github.com/BigO-Hunter/.github) · [bigo-hunter.github.io](https://bigo-hunter.github.io).
+
+## What work can be done here
+
+The build is Lean-Verified, standard axioms only. Open work: independent reruns; smaller counterexample families from the OpenAI release.
+
