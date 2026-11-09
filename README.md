@@ -133,7 +133,7 @@ SHA256SUMS.verify              # Verify/SidorenkoCounterexample.lean (this repo'
 
 ## License
 
-Apache 2.0, matching the upstream `openai/math` lean folder license.
+Licensed under the CFSF License — see [LICENSE](LICENSE) ([github.com/darkhipo/cfsf](https://github.com/darkhipo/cfsf)). The vendored upstream `openai/math` material keeps its Apache-2.0 license — see [NOTICE](NOTICE.md).
 
 ---
 
