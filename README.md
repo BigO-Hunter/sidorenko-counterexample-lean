@@ -53,7 +53,7 @@ Requirements: `elan` (installs the pinned toolchain automatically), `git`, ~8 GB
 disk. Internet needed once to fetch Mathlib and its cached oleans.
 
 ```bash
-git clone https://github.com/darkhipo/sidorenko-counterexample-lean
+git clone https://github.com/BigO-Hunter/sidorenko-counterexample-lean
 cd sidorenko-counterexample-lean
 lake update
 lake exe cache get      # Mathlib oleans for the pinned commit (minutes)
