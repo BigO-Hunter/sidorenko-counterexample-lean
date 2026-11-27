@@ -104,18 +104,12 @@ Only the three standard axioms. No `sorryAx`, no custom axioms. The `#print
 axioms` line is part of the source file, so `lake build` itself re-emits it on
 every build.
 
-## What this is / is not
+## Scope
 
-- ✅ First **Lean-Verified** row for the Sidorenko counterexample problem:
-  the exact OpenAI comparator statement, proved with standard axioms only.
-- ✅ Reproducible from a clean clone with the commands above.
-- ❌ Not the numerical leader: the certificate bound here is the upstream
-  artifact's own (see `random host` construction in `RandomHost.lean`; the
-  `1642 ≤ D₀` dichotomy in `Tail.lean` is an internal exponent threshold, not
-  the board's C-metric). Tightening toward C≤189 is future work and needs the
-  board's sizing rules.
-- ❌ Not the forcing-conjecture consequence (explicitly outside the upstream
-  formalization scope).
+- The certificate bound (C≤1641) is the upstream artifact's own — see the random
+  host construction in `RandomHost.lean`. The `1642 ≤ D₀` dichotomy in `Tail.lean`
+  is an internal exponent threshold, not the board's C-metric.
+- The forcing-conjecture consequence is outside the upstream formalization scope.
 
 ## Layout
 
@@ -135,15 +129,10 @@ SHA256SUMS.verify              # Verify/SidorenkoCounterexample.lean (this repo'
 
 Licensed under the CFSF License — see [LICENSE](LICENSE) ([github.com/darkhipo/cfsf](https://github.com/darkhipo/cfsf)). The vendored upstream `openai/math` material keeps its Apache-2.0 license — see [NOTICE](NOTICE.md).
 
+## Open work
+
+Independent reruns; smaller counterexample families from the OpenAI release; tightening toward C≤189 (needs the board's sizing rules).
+
 ---
 
-## Why this repo is up
-
-Reproducible verified results: the first Lean-Verified build of the OpenAI Sidorenko counterexample comparator — public evidence the counterexample checks, standard axioms only.
-
-[BigO-Hunter](https://github.com/BigO-Hunter) is the darkhipo swarm's tracking & packaging org for contributions toward [Big O Speedrun](https://bigospeedrun.com) — a companion, never the project. Org story: [profile](https://github.com/BigO-Hunter/.github) · [bigo-hunter.github.io](https://bigo-hunter.github.io).
-
-## What work can be done here
-
-The build is Lean-Verified, standard axioms only. Open work: independent reruns; smaller counterexample families from the OpenAI release.
-
+[BigO-Hunter](https://github.com/BigO-Hunter) — the darkhipo swarm's tracking & packaging org for [Big O Speedrun](https://bigospeedrun.com) contributions. [Org profile](https://github.com/BigO-Hunter/.github) · [bigo-hunter.github.io](https://bigo-hunter.github.io).
